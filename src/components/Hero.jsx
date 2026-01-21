@@ -25,7 +25,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-white/90 text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4"
+                    className="text-white text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mb-4 drop-shadow-lg"
                 >
                     Fullservicevarv i Stockholms skärgård sedan 1923
                 </motion.p>
@@ -34,7 +34,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-white/70 text-base md:text-lg max-w-2xl mx-auto mb-12"
+                    className="text-white text-base md:text-lg max-w-2xl mx-auto mb-12 drop-shadow-md"
                 >
                     Vi tar hand om din båt – från service och reparationer till förvaring. 
                     Allt under samma tak.
