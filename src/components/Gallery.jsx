@@ -16,8 +16,8 @@ const images = [
         alt: "Varvsverksamhet"
     },
     {
-        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/220.jpeg",
-        alt: "Båtlyft"
+        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0272.jpg",
+        alt: "Hamnen vid Djurö Båtvarv"
     }
 ];
 

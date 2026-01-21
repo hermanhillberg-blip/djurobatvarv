@@ -172,7 +172,6 @@ export default function Contact() {
                                             <SelectValue placeholder="Välj tjänst" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="general">Generell förfrågan</SelectItem>
                                             <SelectItem value="motorservice">Motorservice</SelectItem>
                                             <SelectItem value="reparation">Reparationer</SelectItem>
                                             <SelectItem value="sommarforvaring">Sommarförvaring</SelectItem>
