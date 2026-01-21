@@ -16,7 +16,7 @@ export default function Hero() {
                     backgroundImage: 'url(https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0272.jpg)'
                 }}
             >
-                <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/80 via-[#1e3a5f]/60 to-[#1e3a5f]/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/50 via-[#1e3a5f]/30 to-[#1e3a5f]/60" />
             </div>
 
             {/* Content */}
