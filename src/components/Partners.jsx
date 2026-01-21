@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const partners = [
     {
         name: "Volvo Penta",
-        logo: "https://djurobatvarv.se/wp-content/uploads/2015/02/vplogo.jpg"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Volvo_Penta_logo.svg/1200px-Volvo_Penta_logo.svg.png"
     },
     {
         name: "Yamaha",

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
     MapPin, 
     Phone, 
@@ -17,6 +18,7 @@ import { toast } from "sonner";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
+        service: '',
         name: '',
         email: '',
         phone: '',
@@ -36,7 +38,7 @@ export default function Contact() {
         setIsSubmitted(true);
         toast.success("Tack för ditt meddelande! Vi återkommer så snart vi kan.");
         
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFormData({ service: '', name: '', email: '', phone: '', message: '' });
         
         setTimeout(() => setIsSubmitted(false), 3000);
     };
@@ -160,6 +162,27 @@ export default function Contact() {
                             </h3>
                             
                             <div className="space-y-5">
+                                <div>
+                                    <Label htmlFor="service" className="text-slate-700">Vad gäller ditt ärende?</Label>
+                                    <Select
+                                        value={formData.service}
+                                        onValueChange={(value) => setFormData({...formData, service: value})}
+                                    >
+                                        <SelectTrigger className="mt-1.5">
+                                            <SelectValue placeholder="Välj tjänst" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="general">Generell förfrågan</SelectItem>
+                                            <SelectItem value="motorservice">Motorservice</SelectItem>
+                                            <SelectItem value="reparation">Reparationer</SelectItem>
+                                            <SelectItem value="sommarforvaring">Sommarförvaring</SelectItem>
+                                            <SelectItem value="vinterforvaring">Vinterförvaring</SelectItem>
+                                            <SelectItem value="forsakring">Försäkringsärende</SelectItem>
+                                            <SelectItem value="annat">Övrigt</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+
                                 <div>
                                     <Label htmlFor="name" className="text-slate-700">Namn</Label>
                                     <Input

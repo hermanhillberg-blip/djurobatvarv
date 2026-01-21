@@ -21,24 +21,11 @@ export default function Hero() {
 
             {/* Content */}
             <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-8"
-                >
-                    <img 
-                        src="https://djurobatvarv.se/wp-content/uploads/2015/02/Djurobatvarv-vit.png" 
-                        alt="Djurö Båtvarv" 
-                        className="h-20 md:h-28 lg:h-32 mx-auto"
-                    />
-                </motion.div>
-
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-white/90 text-lg md:text-xl lg:text-2xl font-light tracking-wide mb-4"
+                    className="text-white/90 text-2xl md:text-3xl lg:text-4xl font-light tracking-wide mb-4"
                 >
                     Fullservicevarv i Stockholms skärgård sedan 1923
                 </motion.p>
