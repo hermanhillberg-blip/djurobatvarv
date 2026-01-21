@@ -38,7 +38,7 @@ export default function Navigation() {
                 transition={{ duration: 0.6 }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                     isScrolled 
-                        ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
+                        ? 'bg-[#1e3a5f] shadow-lg py-3' 
                         : 'bg-transparent py-5'
                 }`}
             >
@@ -51,9 +51,7 @@ export default function Navigation() {
                         <img 
                             src="https://djurobatvarv.se/wp-content/uploads/2015/02/Djurobatvarv-vit.png" 
                             alt="Djurö Båtvarv" 
-                            className={`h-10 md:h-12 transition-all duration-500 ${
-                                isScrolled ? 'brightness-0' : ''
-                            }`}
+                            className="h-10 md:h-12"
                         />
                     </button>
 
@@ -63,11 +61,7 @@ export default function Navigation() {
                             <button
                                 key={index}
                                 onClick={() => scrollToSection(link.href)}
-                                className={`font-medium transition-colors duration-300 ${
-                                    isScrolled 
-                                        ? 'text-slate-700 hover:text-[#1e3a5f]' 
-                                        : 'text-white/90 hover:text-white'
-                                }`}
+                                className="font-medium text-white/90 hover:text-white transition-colors duration-300"
                             >
                                 {link.label}
                             </button>
@@ -76,11 +70,7 @@ export default function Navigation() {
                             href="http://seaquip.se/" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className={`font-medium transition-colors duration-300 ${
-                                isScrolled 
-                                    ? 'text-[#c41e3a] hover:text-[#a31830]' 
-                                    : 'text-[#c41e3a] hover:text-white'
-                            }`}
+                            className="font-medium text-white/90 hover:text-white transition-colors duration-300"
                         >
                             Seaquip
                         </a>
@@ -89,9 +79,7 @@ export default function Navigation() {
                     {/* Mobile Menu Button */}
                     <button 
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className={`md:hidden p-2 transition-colors ${
-                            isScrolled ? 'text-[#1e3a5f]' : 'text-white'
-                        }`}
+                        className="md:hidden p-2 text-white"
                     >
                         {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
