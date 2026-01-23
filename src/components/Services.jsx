@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
 import { 
     Anchor, 
     Wrench, 
@@ -8,39 +10,58 @@ import {
     Ship, 
     Settings,
     Snowflake,
-    Sun
+    Droplets,
+    ChevronRight
 } from 'lucide-react';
 
 const services = [
     {
         icon: Wrench,
         title: "Motorservice",
-        description: "Auktoriserad service av Yamaha, Volvo Penta, Yanmar, Mercury, Selva och Mercruiser."
+        description: "Auktoriserad service av Yamaha, Volvo Penta, Yanmar, Mercury, Selva och Mercruiser.",
+        page: "Motorservice"
     },
     {
         icon: Ship,
         title: "Plast & Träbåtar",
-        description: "Vi arbetar med både plastbåtar och traditionella träbåtar med samma expertis."
+        description: "Vi arbetar med både plastbåtar och traditionella träbåtar med samma expertis.",
+        page: "PlastTrabatar"
     },
     {
         icon: Warehouse,
         title: "Sommarförvaring",
-        description: "Nyckelfärdig sommarförvaring med full service – lämna och hämta vid kaj."
+        description: "Nyckelfärdig sommarförvaring med full service – lämna och hämta vid kaj.",
+        page: "Sommarforvaring"
     },
     {
         icon: Snowflake,
         title: "Vinterförvaring",
-        description: "Säker och skyddad vinterförvaring med professionella Seaquip båtstöttor."
+        description: "Säker och skyddad vinterförvaring med professionella Seaquip båtstöttor.",
+        page: "Vinterforvaring"
     },
     {
         icon: Settings,
         title: "Reparationer",
-        description: "Fullständiga reparationer och underhåll för alla typer av fritidsbåtar."
+        description: "Fullständiga reparationer och underhåll för alla typer av fritidsbåtar.",
+        page: "Reparationer"
     },
     {
         icon: ShieldCheck,
         title: "Försäkringsärenden",
-        description: "Vi arbetar mot samtliga försäkringsbolag för smidig hantering av skador."
+        description: "Vi arbetar mot samtliga försäkringsbolag för smidig hantering av skador.",
+        page: "Forsakringsarenden"
+    },
+    {
+        icon: Anchor,
+        title: "Seaquip Båtstöttor",
+        description: "Återförsäljare av Seaquip – de säkraste originalstöttorna med längst livslängd.",
+        page: "Seaquip"
+    },
+    {
+        icon: Droplets,
+        title: "Tvätt",
+        description: "Professionell båttvätt och bottentvätt för att hålla din båt i toppskick.",
+        page: "Tvatt"
     }
 ];
 
@@ -89,24 +110,28 @@ export default function Services() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
                 >
                     {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            className="group p-8 rounded-2xl bg-slate-50 hover:bg-[#1e3a5f] transition-all duration-500 cursor-default"
-                        >
-                            <div className="w-14 h-14 rounded-xl bg-[#1e3a5f]/10 group-hover:bg-white/20 flex items-center justify-center mb-6 transition-colors duration-500">
-                                <service.icon className="w-7 h-7 text-[#1e3a5f] group-hover:text-white transition-colors duration-500" />
-                            </div>
-                            <h3 className="text-xl font-semibold text-[#1e3a5f] group-hover:text-white mb-3 transition-colors duration-500">
-                                {service.title}
-                            </h3>
-                            <p className="text-slate-600 group-hover:text-white/80 leading-relaxed transition-colors duration-500">
-                                {service.description}
-                            </p>
-                        </motion.div>
+                        <Link key={index} to={createPageUrl(service.page)}>
+                            <motion.div
+                                variants={itemVariants}
+                                className="group p-5 rounded-xl bg-slate-50 hover:bg-[#1e3a5f] transition-all duration-500 cursor-pointer h-full"
+                            >
+                                <div className="w-10 h-10 rounded-lg bg-[#1e3a5f]/10 group-hover:bg-white/20 flex items-center justify-center mb-4 transition-colors duration-500">
+                                    <service.icon className="w-5 h-5 text-[#1e3a5f] group-hover:text-white transition-colors duration-500" />
+                                </div>
+                                <h3 className="text-base font-semibold text-[#1e3a5f] group-hover:text-white mb-2 transition-colors duration-500">
+                                    {service.title}
+                                </h3>
+                                <p className="text-slate-600 group-hover:text-white/80 text-sm leading-relaxed transition-colors duration-500 mb-3">
+                                    {service.description}
+                                </p>
+                                <span className="text-[#c41e3a] group-hover:text-white/90 text-sm font-medium flex items-center gap-1 transition-colors duration-500">
+                                    Läs mer <ChevronRight className="w-4 h-4" />
+                                </span>
+                            </motion.div>
+                        </Link>
                     ))}
                 </motion.div>
 

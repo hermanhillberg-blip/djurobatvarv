@@ -60,20 +60,6 @@ export default function Hero() {
                     </a>
                 </motion.div>
 
-                {/* SweBoat Logo */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                    className="mt-16"
-                >
-                    <p className="text-white/50 text-sm mb-3">Medlem i</p>
-                    <img 
-                        src="https://djurobatvarv.se/wp-content/uploads/2015/02/SweBoat-logga-e1481716273781.png" 
-                        alt="SweBoat" 
-                        className="h-10 mx-auto opacity-70"
-                    />
-                </motion.div>
             </div>
 
             {/* Scroll Indicator */}
