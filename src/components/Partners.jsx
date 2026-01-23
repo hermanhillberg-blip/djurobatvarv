@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const partners = [
     {
         name: "Volvo Penta",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Volvo_Penta_logo.svg/1200px-Volvo_Penta_logo.svg.png"
+        logo: "https://www.volvopenta.com/content/dam/brand-sites/volvo-penta/global/images/logo/vp_logo_stack_black.svg"
     },
     {
         name: "Yamaha",
@@ -21,6 +21,10 @@ const partners = [
     {
         name: "Mercury",
         logo: "https://djurobatvarv.se/wp-content/uploads/2015/02/Unknown-3-300x86.png"
+    },
+    {
+        name: "SweBoat",
+        logo: "https://djurobatvarv.se/wp-content/uploads/2015/02/SweBoat-logga-e1481716273781.png"
     }
 ];
 
@@ -57,7 +61,7 @@ export default function Partners() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                            className="hover:scale-105 transition-all duration-300"
                         >
                             <img 
                                 src={partner.logo} 

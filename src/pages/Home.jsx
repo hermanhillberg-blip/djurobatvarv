@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
+import AboutUs from '@/components/AboutUs';
 import Gallery from '@/components/Gallery';
 import Partners from '@/components/Partners';
 import Contact from '@/components/Contact';
@@ -13,6 +14,7 @@ export default function Home() {
             <Navigation />
             <Hero />
             <Services />
+            <AboutUs />
             <Gallery />
             <Partners />
             <Contact />
