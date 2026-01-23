@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
     { label: 'Hem', href: '#' },
-    { label: 'Verksamhet', href: '#verksamhet' },
+    { label: 'Tjänster', href: '#tjanster' },
     { label: 'Om oss', href: '#om-oss' },
     { label: 'Bildgalleri', href: '#bildgalleri' },
     { label: 'Kontakt', href: '#kontakt' }

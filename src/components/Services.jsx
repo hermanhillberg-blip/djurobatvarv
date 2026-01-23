@@ -19,49 +19,49 @@ const services = [
         icon: Wrench,
         title: "Motorservice",
         description: "Auktoriserad service av Yamaha, Volvo Penta, Yanmar, Mercury, Selva och Mercruiser.",
-        page: "Motorservice"
+        page: "motorservice"
     },
     {
         icon: Ship,
         title: "Plast & Träbåtar",
         description: "Vi arbetar med både plastbåtar och traditionella träbåtar med samma expertis.",
-        page: "PlastTrabatar"
+        page: "plast-och-trabatar"
     },
     {
         icon: Warehouse,
         title: "Sommarförvaring",
         description: "Nyckelfärdig sommarförvaring med full service – lämna och hämta vid kaj.",
-        page: "Sommarforvaring"
+        page: "sommarforvaring"
     },
     {
         icon: Snowflake,
         title: "Vinterförvaring",
         description: "Säker och skyddad vinterförvaring med professionella Seaquip båtstöttor.",
-        page: "Vinterforvaring"
+        page: "vinterforvaring"
     },
     {
         icon: Settings,
         title: "Reparationer",
         description: "Fullständiga reparationer och underhåll för alla typer av fritidsbåtar.",
-        page: "Reparationer"
+        page: "reparationer"
     },
     {
         icon: ShieldCheck,
         title: "Försäkringsärenden",
         description: "Vi arbetar mot samtliga försäkringsbolag för smidig hantering av skador.",
-        page: "Forsakringsarenden"
+        page: "forsakringsarenden"
     },
     {
         icon: Anchor,
         title: "Seaquip Båtstöttor",
         description: "Återförsäljare av Seaquip – de säkraste originalstöttorna med längst livslängd.",
-        page: "Seaquip"
+        page: "seaquip-batstottor"
     },
     {
         icon: Droplets,
         title: "Tvätt",
         description: "Professionell båttvätt och bottentvätt för att hålla din båt i toppskick.",
-        page: "Tvatt"
+        page: "tvatt"
     }
 ];
 
@@ -82,7 +82,7 @@ const itemVariants = {
 
 export default function Services() {
     return (
-        <section id="verksamhet" className="py-24 md:py-32 bg-white">
+        <section id="tjanster" className="py-24 md:py-32 bg-white">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header */}
                 <motion.div
@@ -96,7 +96,7 @@ export default function Services() {
                         Våra tjänster
                     </span>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3a5f] mt-4 mb-6">
-                        Vår verksamhet
+                        Tjänster
                     </h2>
                     <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
                         Djurö Båtvarv är ett fullservicevarv lokaliserat i centrala Stockholms skärgård. 

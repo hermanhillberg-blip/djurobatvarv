@@ -22,11 +22,11 @@ export default function ServicePageLayout({
             <section className="pt-32 pb-16 bg-[#1e3a5f]">
                 <div className="max-w-7xl mx-auto px-6">
                     <Link 
-                        to={createPageUrl('Home')} 
+                        to={createPageUrl('Home') + '#tjanster'} 
                         className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
-                        Tillbaka till startsidan
+                        Tillbaka till Tjänster
                     </Link>
                     
                     <motion.div

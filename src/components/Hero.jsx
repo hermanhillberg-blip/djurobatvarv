@@ -53,7 +53,7 @@ export default function Hero() {
                         Kontakta oss
                     </a>
                     <a 
-                        href="#verksamhet"
+                        href="#tjanster"
                         className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300"
                     >
                         Våra tjänster
