@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
 import { ChevronDown, Anchor } from 'lucide-react';
 
 export default function Hero() {
@@ -52,6 +54,12 @@ export default function Hero() {
                     >
                         Kontakta oss
                     </a>
+                    <Link 
+                        to={createPageUrl('BokaService')}
+                        className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg"
+                    >
+                        Boka service
+                    </Link>
                     <a 
                         href="#tjanster"
                         className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300"
