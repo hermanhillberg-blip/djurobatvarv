@@ -127,45 +127,48 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Coordinates Link */}
-                        <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1e3a5f]/40 to-transparent border border-white/20">
-                            <div className="flex items-start gap-4">
-                                <MapPin className="w-7 h-7 text-white mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <h4 className="text-white font-semibold mb-1">Koordinater</h4>
-                                    <p className="text-white/70 text-sm mb-2">
-                                        Lat: 59° 18' 21.43"N<br />
-                                        Long: 18° 41' 12.08"E
-                                    </p>
-                                    <a 
-                                        href="https://www.google.com/maps?q=59.305953,18.686689" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-white text-sm font-medium hover:underline"
-                                    >
-                                        Öppna i Google Maps →
-                                    </a>
+                        {/* Bottom row - Coordinates & Seaquip */}
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            {/* Coordinates Link */}
+                            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1e3a5f]/40 to-transparent border border-white/20">
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="w-6 h-6 text-white mt-0.5 flex-shrink-0" />
+                                    <div>
+                                        <h4 className="text-white font-semibold mb-1">Koordinater</h4>
+                                        <p className="text-white/70 text-sm mb-2">
+                                            Lat: 59° 18' 21.43"N<br />
+                                            Long: 18° 41' 12.08"E
+                                        </p>
+                                        <a 
+                                            href="https://www.google.com/maps?q=59.305953,18.686689" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="text-white text-sm font-medium hover:underline"
+                                        >
+                                            Öppna i Google Maps →
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Seaquip Link */}
-                        <div className="p-5 rounded-2xl bg-gradient-to-r from-[#c41e3a]/20 to-transparent border border-[#c41e3a]/30">
-                            <div className="flex items-start gap-4">
-                                <Anchor className="w-7 h-7 text-[#c41e3a] mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <h4 className="text-white font-semibold mb-1">Seaquip Båtstöttor</h4>
-                                    <p className="text-white/70 text-sm mb-2">
-                                        Vi är återförsäljare av Seaquip – de säkraste originalstöttorna med längst livslängd.
-                                    </p>
-                                    <a 
-                                        href="http://seaquip.se/" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-[#c41e3a] text-sm font-medium hover:underline"
-                                    >
-                                        Besök seaquip.se →
-                                    </a>
+                            {/* Seaquip Link */}
+                            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#c41e3a]/20 to-transparent border border-[#c41e3a]/30">
+                                <div className="flex items-start gap-3">
+                                    <Anchor className="w-6 h-6 text-[#c41e3a] mt-0.5 flex-shrink-0" />
+                                    <div>
+                                        <h4 className="text-white font-semibold mb-1">Seaquip Båtstöttor</h4>
+                                        <p className="text-white/70 text-sm mb-2">
+                                            Vi är återförsäljare av Seaquip – de säkraste originalstöttorna.
+                                        </p>
+                                        <a 
+                                            href="http://seaquip.se/" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="text-[#c41e3a] text-sm font-medium hover:underline"
+                                        >
+                                            Besök seaquip.se →
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
