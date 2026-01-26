@@ -66,17 +66,17 @@ export default function Contact() {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-8"
+                        className="space-y-6 h-full flex flex-col"
                     >
                         {/* Info Cards */}
-                        <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="grid sm:grid-cols-2 gap-4 flex-1">
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
                                     <MapPin className="w-6 h-6 text-[#c41e3a]" />
@@ -127,27 +127,6 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        {/* Seaquip Link */}
-                        <div className="p-5 rounded-2xl bg-gradient-to-r from-[#c41e3a]/20 to-transparent border border-[#c41e3a]/30">
-                            <div className="flex items-start gap-4">
-                                <Anchor className="w-7 h-7 text-[#c41e3a] mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <h4 className="text-white font-semibold mb-1">Seaquip Båtstöttor</h4>
-                                    <p className="text-white/70 text-sm mb-2">
-                                        Vi är återförsäljare av Seaquip – de säkraste originalstöttorna med längst livslängd.
-                                    </p>
-                                    <a 
-                                        href="http://seaquip.se/" 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="text-[#c41e3a] text-sm font-medium hover:underline"
-                                    >
-                                        Besök seaquip.se →
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
                         {/* Coordinates Link */}
                         <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1e3a5f]/40 to-transparent border border-white/20">
                             <div className="flex items-start gap-4">
@@ -165,6 +144,27 @@ export default function Contact() {
                                         className="text-white text-sm font-medium hover:underline"
                                     >
                                         Öppna i Google Maps →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Seaquip Link */}
+                        <div className="p-5 rounded-2xl bg-gradient-to-r from-[#c41e3a]/20 to-transparent border border-[#c41e3a]/30">
+                            <div className="flex items-start gap-4">
+                                <Anchor className="w-7 h-7 text-[#c41e3a] mt-0.5 flex-shrink-0" />
+                                <div>
+                                    <h4 className="text-white font-semibold mb-1">Seaquip Båtstöttor</h4>
+                                    <p className="text-white/70 text-sm mb-2">
+                                        Vi är återförsäljare av Seaquip – de säkraste originalstöttorna med längst livslängd.
+                                    </p>
+                                    <a 
+                                        href="http://seaquip.se/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="text-[#c41e3a] text-sm font-medium hover:underline"
+                                    >
+                                        Besök seaquip.se →
                                     </a>
                                 </div>
                             </div>
