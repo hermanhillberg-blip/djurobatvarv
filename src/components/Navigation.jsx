@@ -77,7 +77,7 @@ export default function Navigation() {
                         </a>
                         <div className="flex items-center gap-3 ml-2 pl-4 border-l border-white/20">
                             <a 
-                                href="https://www.linkedin.com/company/djuro-batvarv" 
+                                href="https://www.linkedin.com/company/djur%C3%B6-b%C3%A5tvarv-ab/about/" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="text-white/60 hover:text-white transition-colors"
