@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { ArrowLeft, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, Phone, Mail, Home, ChevronRight } from 'lucide-react';
 import Navigation from './Navigation';
 import Footer from './Footer';
 
@@ -21,13 +21,24 @@ export default function ServicePageLayout({
             {/* Hero */}
             <section className="pt-32 pb-16 bg-[#1e3a5f]">
                 <div className="max-w-7xl mx-auto px-6">
-                    <Link 
-                        to={createPageUrl('Home') + '#tjanster'} 
-                        className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors"
-                    >
-                        <ArrowLeft className="w-4 h-4" />
-                        Tillbaka till Tjänster
-                    </Link>
+                    <div className="flex items-center gap-2 text-white/70 text-sm mb-8">
+                        <Link 
+                            to={createPageUrl('Home')} 
+                            className="hover:text-white transition-colors flex items-center gap-1"
+                        >
+                            <Home className="w-4 h-4" />
+                            Hem
+                        </Link>
+                        <ChevronRight className="w-4 h-4" />
+                        <Link 
+                            to={createPageUrl('Home') + '#tjanster'} 
+                            className="hover:text-white transition-colors"
+                        >
+                            Tjänster
+                        </Link>
+                        <ChevronRight className="w-4 h-4" />
+                        <span className="text-white">{title}</span>
+                    </div>
                     
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -170,7 +181,7 @@ export default function ServicePageLayout({
                                 </div>
 
                                 <Link 
-                                    to={createPageUrl('Home') + '#kontakt'}
+                                    to={createPageUrl('BokaService')}
                                     className="block w-full py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-xl text-center transition-colors"
                                 >
                                     Skicka förfrågan
