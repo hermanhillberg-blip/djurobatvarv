@@ -66,21 +66,19 @@ export default function Contact() {
                     </p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
                     {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="space-y-6 h-full flex flex-col"
+                        className="space-y-6 flex flex-col"
                     >
                         {/* Info Cards */}
-                        <div className="grid sm:grid-cols-2 gap-4 flex-1">
+                        <div className="grid sm:grid-cols-2 gap-4">
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <MapPin className="w-6 h-6 text-white" />
-                                </div>
+                                <MapPin className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Adress</h4>
                                 <p className="text-white/70 text-sm leading-relaxed">
                                     Djurö Båtvarv AB<br />
@@ -90,9 +88,7 @@ export default function Contact() {
                             </div>
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Phone className="w-6 h-6 text-white" />
-                                </div>
+                                <Phone className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Telefon & Jour</h4>
                                 <a 
                                     href="tel:08-5715042" 
@@ -103,9 +99,7 @@ export default function Contact() {
                             </div>
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Mail className="w-6 h-6 text-white" />
-                                </div>
+                                <Mail className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">E-post</h4>
                                 <a 
                                     href="mailto:infos@seaquip.se" 
@@ -116,9 +110,7 @@ export default function Contact() {
                             </div>
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Clock className="w-6 h-6 text-white" />
-                                </div>
+                                <Clock className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Öppettider</h4>
                                 <p className="text-white/70 text-sm">
                                     Mån – Tors: 07:00 – 16:30<br />
@@ -131,9 +123,7 @@ export default function Contact() {
                         <div className="grid sm:grid-cols-2 gap-4">
                             {/* Coordinates Link */}
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <MapPin className="w-6 h-6 text-white" />
-                                </div>
+                                <MapPin className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Koordinater</h4>
                                 <p className="text-white/70 text-sm mb-3">
                                     Lat: 59° 18' 21.43"N<br />
@@ -151,9 +141,7 @@ export default function Contact() {
 
                             {/* Seaquip Link */}
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Anchor className="w-6 h-6 text-white" />
-                                </div>
+                                <Anchor className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Seaquip Båtstöttor</h4>
                                 <p className="text-white/70 text-sm mb-3">
                                     Vi är återförsäljare av Seaquip – de säkraste originalstöttorna.
@@ -176,13 +164,14 @@ export default function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        className="h-full flex flex-col"
                     >
-                        <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-white">
+                        <form onSubmit={handleSubmit} className="p-8 rounded-2xl bg-white h-full flex flex-col">
                             <h3 className="text-xl font-semibold text-[#1e3a5f] mb-6">
                                 Skicka meddelande
                             </h3>
                             
-                            <div className="space-y-5">
+                            <div className="space-y-5 flex-1 flex flex-col">
                                 <div>
                                     <Label htmlFor="service" className="text-slate-700">Vad gäller ditt ärende?</Label>
                                     <Select
@@ -241,7 +230,7 @@ export default function Contact() {
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className="flex-1 flex flex-col">
                                     <Label htmlFor="message" className="text-slate-700">Meddelande</Label>
                                     <Textarea
                                         id="message"
@@ -249,7 +238,7 @@ export default function Contact() {
                                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                                         placeholder="Beskriv ditt ärende..."
                                         required
-                                        className="mt-1.5 min-h-[140px] resize-none"
+                                        className="mt-1.5 flex-1 resize-none"
                                     />
                                 </div>
 
