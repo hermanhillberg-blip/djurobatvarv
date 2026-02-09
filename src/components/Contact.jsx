@@ -150,7 +150,7 @@ export default function Contact() {
                                     href="http://seaquip.se/" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="text-[#c41e3a] text-sm font-medium hover:underline"
+                                    className="text-white text-sm font-medium hover:underline"
                                 >
                                     Besök seaquip.se →
                                 </a>
