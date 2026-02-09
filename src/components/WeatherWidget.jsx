@@ -31,49 +31,49 @@ export default function WeatherWidget() {
     // Bestäm väderikon baserat på vädersymbol
     const getWeatherIcon = () => {
         const symbol = weather.weatherSymbol;
-        if (symbol >= 1 && symbol <= 2) return <Sun className="w-8 h-8 text-white" />;
-        if (symbol >= 3 && symbol <= 6) return <Cloud className="w-8 h-8 text-white" />;
-        if (symbol >= 7 && symbol <= 27) return <CloudRain className="w-8 h-8 text-white" />;
-        return <Sun className="w-8 h-8 text-white" />;
+        if (symbol >= 1 && symbol <= 2) return <Sun className="w-6 h-6 md:w-8 md:h-8 text-white" />;
+        if (symbol >= 3 && symbol <= 6) return <Cloud className="w-6 h-6 md:w-8 md:h-8 text-white" />;
+        if (symbol >= 7 && symbol <= 27) return <CloudRain className="w-6 h-6 md:w-8 md:h-8 text-white" />;
+        return <Sun className="w-6 h-6 md:w-8 md:h-8 text-white" />;
     };
 
     return (
-        <div className="flex items-center gap-6 md:gap-8 bg-white/10 backdrop-blur-md rounded-2xl px-6 py-4 border border-white/20">
+        <div className="flex items-center gap-3 md:gap-8 bg-white/10 backdrop-blur-md rounded-2xl px-3 py-2 md:px-6 md:py-4 border border-white/20">
             {/* Temperatur */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
                 {getWeatherIcon()}
                 <div>
-                    <div className="text-3xl md:text-4xl font-bold text-white">
+                    <div className="text-xl md:text-4xl font-bold text-white">
                         {Math.round(weather.temperature)}°C
                     </div>
                 </div>
             </div>
 
             {/* Separator */}
-            <div className="h-12 w-px bg-white/20" />
+            <div className="h-8 md:h-12 w-px bg-white/20" />
 
             {/* Nederbörd */}
             <div className="flex flex-col items-center">
-                <Droplets className="w-5 h-5 text-white/70 mb-1" />
-                <div className="text-lg font-semibold text-white">
+                <Droplets className="w-4 h-4 md:w-5 md:h-5 text-white/70 mb-0.5 md:mb-1" />
+                <div className="text-sm md:text-lg font-semibold text-white">
                     {weather.precipitationIntensity.toFixed(1)} mm
                 </div>
-                <div className="text-xs text-white/60">Regn</div>
+                <div className="text-[0.6rem] md:text-xs text-white/60">Regn</div>
             </div>
 
             {/* Separator */}
-            <div className="h-12 w-px bg-white/20" />
+            <div className="h-8 md:h-12 w-px bg-white/20" />
 
             {/* Vind */}
             <div className="flex flex-col items-center">
                 <Wind 
-                    className="w-5 h-5 text-white/70 mb-1" 
+                    className="w-4 h-4 md:w-5 md:h-5 text-white/70 mb-0.5 md:mb-1" 
                     style={{ transform: `rotate(${weather.windDirection}deg)` }}
                 />
-                <div className="text-lg font-semibold text-white">
+                <div className="text-sm md:text-lg font-semibold text-white">
                     {weather.windSpeed.toFixed(1)} m/s
                 </div>
-                <div className="text-xs text-white/60">{weather.windDirection}°</div>
+                <div className="text-[0.6rem] md:text-xs text-white/60">{weather.windDirection}°</div>
             </div>
         </div>
     );
