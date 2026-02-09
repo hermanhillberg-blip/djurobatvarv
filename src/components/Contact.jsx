@@ -12,7 +12,8 @@ import {
     Clock, 
     Send,
     Anchor,
-    CheckCircle
+    CheckCircle,
+    Home
 } from 'lucide-react';
 import { toast } from "sonner";
 
@@ -78,7 +79,7 @@ export default function Contact() {
                         {/* Info Cards */}
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <MapPin className="w-6 h-6 text-white mb-4" />
+                                <Home className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Adress</h4>
                                 <p className="text-white/70 text-sm leading-relaxed">
                                     Djurö Båtvarv AB<br />
