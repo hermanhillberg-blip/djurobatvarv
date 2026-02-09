@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ChevronDown, Anchor } from 'lucide-react';
+import WeatherWidget from './WeatherWidget';
 
 export default function Hero() {
     const scrollToServices = () => {
@@ -68,7 +69,16 @@ export default function Hero() {
                     </a>
                 </motion.div>
 
-            </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="mt-12 flex justify-center"
+                >
+                    <WeatherWidget />
+                </motion.div>
+
+                </div>
 
             {/* Scroll Indicator */}
             <motion.button
