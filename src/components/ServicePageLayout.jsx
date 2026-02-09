@@ -30,16 +30,12 @@ export default function ServicePageLayout({
                             Hem
                         </Link>
                         <ChevronRight className="w-4 h-4" />
-                        <a 
-                            href={createPageUrl('Home')}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                window.location.href = createPageUrl('Home') + '#tjanster';
-                            }}
+                        <Link 
+                            to={createPageUrl('Home') + '#tjanster'} 
                             className="hover:text-white transition-colors"
                         >
                             Tjänster
-                        </a>
+                        </Link>
                         <ChevronRight className="w-4 h-4" />
                         <span className="text-white">{title}</span>
                     </div>
