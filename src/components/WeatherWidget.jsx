@@ -66,11 +66,14 @@ export default function WeatherWidget() {
 
             {/* Vind */}
             <div className="flex flex-col items-center">
-                <Wind className="w-5 h-5 text-white/70 mb-1" />
+                <Wind 
+                    className="w-5 h-5 text-white/70 mb-1" 
+                    style={{ transform: `rotate(${weather.windDirection}deg)` }}
+                />
                 <div className="text-lg font-semibold text-white">
-                    {Math.round(weather.windSpeed * 3.6)} km/h
+                    {weather.windSpeed.toFixed(1)} m/s
                 </div>
-                <div className="text-xs text-white/60">Vind</div>
+                <div className="text-xs text-white/60">{weather.windDirection}°</div>
             </div>
         </div>
     );
