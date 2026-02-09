@@ -76,7 +76,7 @@ export default function Contact() {
                         className="space-y-6 flex flex-col"
                     >
                         {/* Info Cards */}
-                        <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-6">
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <MapPin className="w-6 h-6 text-white mb-4" />
                                 <h4 className="text-white font-semibold mb-2">Adress</h4>
@@ -124,7 +124,7 @@ export default function Contact() {
                         </div>
 
                         {/* Bottom row - Coordinates & Seaquip */}
-                        <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="grid sm:grid-cols-2 gap-6">
                             {/* Coordinates Link */}
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <MapPin className="w-6 h-6 text-white mb-4" />
