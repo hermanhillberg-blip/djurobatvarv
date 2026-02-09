@@ -99,7 +99,9 @@ export default function Contact() {
                             </div>
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <Mail className="w-6 h-6 text-white mb-9" />
+                                <div className="h-[40px] flex items-start">
+                                    <Mail className="w-6 h-6 text-white" />
+                                </div>
                                 <h4 className="text-white font-semibold mb-2">E-post</h4>
                                 <a 
                                     href="mailto:infos@seaquip.se" 
@@ -110,7 +112,9 @@ export default function Contact() {
                             </div>
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                <Clock className="w-6 h-6 text-white mb-9" />
+                                <div className="h-[40px] flex items-start">
+                                    <Clock className="w-6 h-6 text-white" />
+                                </div>
                                 <h4 className="text-white font-semibold mb-2">Öppettider</h4>
                                 <p className="text-white/70 text-sm">
                                     Mån – Tors: 07:00 – 16:30<br />
