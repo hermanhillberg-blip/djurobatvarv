@@ -79,7 +79,7 @@ export default function Contact() {
                         <div className="grid sm:grid-cols-2 gap-4 flex-1">
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <MapPin className="w-6 h-6 text-[#c41e3a]" />
+                                    <MapPin className="w-6 h-6 text-white" />
                                 </div>
                                 <h4 className="text-white font-semibold mb-2">Adress</h4>
                                 <p className="text-white/70 text-sm leading-relaxed">
@@ -91,7 +91,7 @@ export default function Contact() {
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Phone className="w-6 h-6 text-[#c41e3a]" />
+                                    <Phone className="w-6 h-6 text-white" />
                                 </div>
                                 <h4 className="text-white font-semibold mb-2">Telefon & Jour</h4>
                                 <a 
@@ -104,7 +104,7 @@ export default function Contact() {
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Mail className="w-6 h-6 text-[#c41e3a]" />
+                                    <Mail className="w-6 h-6 text-white" />
                                 </div>
                                 <h4 className="text-white font-semibold mb-2">E-post</h4>
                                 <a 
@@ -117,7 +117,7 @@ export default function Contact() {
 
                             <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
                                 <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
-                                    <Clock className="w-6 h-6 text-[#c41e3a]" />
+                                    <Clock className="w-6 h-6 text-white" />
                                 </div>
                                 <h4 className="text-white font-semibold mb-2">Öppettider</h4>
                                 <p className="text-white/70 text-sm">
@@ -130,46 +130,42 @@ export default function Contact() {
                         {/* Bottom row - Coordinates & Seaquip */}
                         <div className="grid sm:grid-cols-2 gap-4">
                             {/* Coordinates Link */}
-                            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#1e3a5f]/40 to-transparent border border-white/20">
-                                <div className="flex items-start gap-3">
-                                    <MapPin className="w-6 h-6 text-white mt-0.5 flex-shrink-0" />
-                                    <div>
-                                        <h4 className="text-white font-semibold mb-1">Koordinater</h4>
-                                        <p className="text-white/70 text-sm mb-2">
-                                            Lat: 59° 18' 21.43"N<br />
-                                            Long: 18° 41' 12.08"E
-                                        </p>
-                                        <a 
-                                            href="https://www.google.com/maps?q=59.305953,18.686689" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="text-white text-sm font-medium hover:underline"
-                                        >
-                                            Öppna i Google Maps →
-                                        </a>
-                                    </div>
+                            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
+                                    <MapPin className="w-6 h-6 text-white" />
                                 </div>
+                                <h4 className="text-white font-semibold mb-2">Koordinater</h4>
+                                <p className="text-white/70 text-sm mb-3">
+                                    Lat: 59° 18' 21.43"N<br />
+                                    Long: 18° 41' 12.08"E
+                                </p>
+                                <a 
+                                    href="https://www.google.com/maps?q=59.305953,18.686689" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="text-white text-sm font-medium hover:underline"
+                                >
+                                    Öppna i Google Maps →
+                                </a>
                             </div>
 
                             {/* Seaquip Link */}
-                            <div className="p-5 rounded-2xl bg-gradient-to-r from-[#c41e3a]/20 to-transparent border border-[#c41e3a]/30">
-                                <div className="flex items-start gap-3">
-                                    <Anchor className="w-6 h-6 text-[#c41e3a] mt-0.5 flex-shrink-0" />
-                                    <div>
-                                        <h4 className="text-white font-semibold mb-1">Seaquip Båtstöttor</h4>
-                                        <p className="text-white/70 text-sm mb-2">
-                                            Vi är återförsäljare av Seaquip – de säkraste originalstöttorna.
-                                        </p>
-                                        <a 
-                                            href="http://seaquip.se/" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="text-[#c41e3a] text-sm font-medium hover:underline"
-                                        >
-                                            Besök seaquip.se →
-                                        </a>
-                                    </div>
+                            <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+                                <div className="w-12 h-12 rounded-xl bg-[#c41e3a]/20 flex items-center justify-center mb-4">
+                                    <Anchor className="w-6 h-6 text-white" />
                                 </div>
+                                <h4 className="text-white font-semibold mb-2">Seaquip Båtstöttor</h4>
+                                <p className="text-white/70 text-sm mb-3">
+                                    Vi är återförsäljare av Seaquip – de säkraste originalstöttorna.
+                                </p>
+                                <a 
+                                    href="http://seaquip.se/" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="text-[#c41e3a] text-sm font-medium hover:underline"
+                                >
+                                    Besök seaquip.se →
+                                </a>
                             </div>
                         </div>
                     </motion.div>
