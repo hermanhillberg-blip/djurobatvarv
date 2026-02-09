@@ -31,10 +31,10 @@ export default function WeatherWidget() {
     // Bestäm väderikon baserat på vädersymbol
     const getWeatherIcon = () => {
         const symbol = weather.weatherSymbol;
-        if (symbol >= 1 && symbol <= 2) return <Sun className="w-8 h-8" />;
-        if (symbol >= 3 && symbol <= 6) return <Cloud className="w-8 h-8" />;
-        if (symbol >= 7 && symbol <= 27) return <CloudRain className="w-8 h-8" />;
-        return <Sun className="w-8 h-8" />;
+        if (symbol >= 1 && symbol <= 2) return <Sun className="w-8 h-8 text-white" />;
+        if (symbol >= 3 && symbol <= 6) return <Cloud className="w-8 h-8 text-white" />;
+        if (symbol >= 7 && symbol <= 27) return <CloudRain className="w-8 h-8 text-white" />;
+        return <Sun className="w-8 h-8 text-white" />;
     };
 
     return (
