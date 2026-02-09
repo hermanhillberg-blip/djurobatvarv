@@ -30,12 +30,12 @@ export default function ServicePageLayout({
                             Hem
                         </Link>
                         <ChevronRight className="w-4 h-4" />
-                        <Link 
-                            to={createPageUrl('Home') + '#tjanster'} 
+                        <a 
+                            href="/#tjanster" 
                             className="hover:text-white transition-colors"
                         >
                             Tjänster
-                        </Link>
+                        </a>
                         <ChevronRight className="w-4 h-4" />
                         <span className="text-white">{title}</span>
                     </div>
