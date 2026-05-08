@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const partners = [
     {
         name: "Volvo Penta",
-        logo: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/07afa7ae5_volvo-penta-logo-vector-free-download-11574247011pmvzrjxrgp.png"
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Volvo_Penta_stacked_wordmark.svg"
     },
     {
         name: "Yamaha",
@@ -66,7 +66,7 @@ export default function Partners() {
                             <img 
                                src={partner.logo} 
                                alt={partner.name}
-                               className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-14 md:h-16 mix-blend-multiply' : 'h-10 md:h-12'}`}
+                               className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-10 md:h-12' : 'h-10 md:h-12'}`}
                             />
                         </motion.div>
                     ))}
