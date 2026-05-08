@@ -19,7 +19,7 @@ export default function Hero() {
                     backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/8a2da2b6f_DSCF4561.jpg)'
                 }}
             >
-                <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/50 via-[#1e3a5f]/30 to-[#1e3a5f]/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/30 via-[#1e3a5f]/15 to-[#1e3a5f]/40" />
             </div>
 
             {/* Content */}
