@@ -64,9 +64,9 @@ export default function Partners() {
                             className="hover:scale-105 transition-all duration-300"
                         >
                             <img 
-                                src={partner.logo} 
-                                alt={partner.name}
-                                className="h-10 md:h-12 object-contain"
+                               src={partner.logo} 
+                               alt={partner.name}
+                               className={`object-contain mix-blend-multiply ${partner.name === 'Volvo Penta' ? 'h-14 md:h-16' : 'h-10 md:h-12'}`}
                             />
                         </motion.div>
                     ))}
