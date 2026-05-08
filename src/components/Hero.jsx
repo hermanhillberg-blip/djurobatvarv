@@ -37,7 +37,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-white text-base md:text-lg max-w-2xl mx-auto mb-12 drop-shadow-md"
+                    className="text-white text-base md:text-lg max-w-4xl mx-auto mb-12 drop-shadow-md"
                 >
                     Vi tar hand om din båt – från service och reparationer till förvaring. 
                     Allt under samma tak.
