@@ -52,21 +52,41 @@ export default function Partners() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16"
+                    className="flex flex-col items-center gap-8"
                 >
-                    {partners.map((partner, index) => (
+                    {/* Första raden: de 5 första partners */}
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-10">
+                        {partners.slice(0, 5).map((partner, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="hover:scale-105 transition-all duration-300"
+                            >
+                                <img 
+                                   src={partner.logo} 
+                                   alt={partner.name}
+                                   className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-7 md:h-8' : 'h-10 md:h-12'}`}
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
+                    {/* Andra raden: SweBoat centrerat */}
+                    {partners.slice(5).map((partner, index) => (
                         <motion.div
-                            key={index}
+                            key={index + 5}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
                             className="hover:scale-105 transition-all duration-300"
                         >
                             <img 
                                src={partner.logo} 
                                alt={partner.name}
-                               className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-10 md:h-12' : 'h-10 md:h-12'}`}
+                               className="h-10 md:h-12 object-contain"
                             />
                         </motion.div>
                     ))}
