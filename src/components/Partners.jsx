@@ -66,7 +66,7 @@ export default function Partners() {
                             <img 
                                src={partner.logo} 
                                alt={partner.name}
-                               className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-14 md:h-16' : 'h-10 md:h-12'}`}
+                               className={`object-contain ${partner.name === 'Volvo Penta' ? 'h-14 md:h-16 mix-blend-multiply' : 'h-10 md:h-12'}`}
                             />
                         </motion.div>
                     ))}
