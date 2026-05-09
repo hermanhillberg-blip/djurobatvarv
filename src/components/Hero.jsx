@@ -23,8 +23,9 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            {/* Text – positionerad högt uppe */}
-            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto md:absolute md:top-28 md:left-1/2 md:-translate-x-1/2 md:w-full">
+            {/* Desktop: text högt uppe, knappar/väder långt ned via absolut positionering */}
+            {/* Mobil: normal centrerad flex-layout */}
+            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -38,41 +39,37 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-white text-base md:text-lg max-w-4xl mx-auto drop-shadow-md"
+                    className="text-white text-base md:text-lg max-w-4xl mx-auto mb-12 drop-shadow-md"
                 >
                     Vi tar hand om din båt – från service och reparationer till förvaring. 
                     Allt under samma tak.
                 </motion.p>
+
+                {/* Knappar + väder: på mobil direkt under texten, på desktop absolut längst ned */}
+                <div className="md:hidden">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                        <a href="#kontakt" className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30">Kontakta oss</a>
+                        <Link to={createPageUrl('BokaService')} className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg">Boka service</Link>
+                        <a href="#tjanster" className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300">Våra tjänster</a>
+                    </div>
+                    <div className="flex justify-center mt-4">
+                        <WeatherWidget />
+                    </div>
+                </div>
             </div>
 
-            {/* Knappar + väder – positionerade långt ned */}
-            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mt-12 md:absolute md:bottom-16 md:left-1/2 md:-translate-x-1/2 md:w-full md:mt-0">
+            {/* Desktop: knappar + väder absolut längst ned */}
+            <div className="hidden md:block absolute bottom-16 left-1/2 -translate-x-1/2 w-full text-center px-6 z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+                    className="flex flex-row gap-4 justify-center items-center mb-8"
                 >
-                    <a 
-                        href="#kontakt"
-                        className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30"
-                    >
-                        Kontakta oss
-                    </a>
-                    <Link 
-                        to={createPageUrl('BokaService')}
-                        className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg"
-                    >
-                        Boka service
-                    </Link>
-                    <a 
-                        href="#tjanster"
-                        className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300"
-                    >
-                        Våra tjänster
-                    </a>
+                    <a href="#kontakt" className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30">Kontakta oss</a>
+                    <Link to={createPageUrl('BokaService')} className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg">Boka service</Link>
+                    <a href="#tjanster" className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300">Våra tjänster</a>
                 </motion.div>
-
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
