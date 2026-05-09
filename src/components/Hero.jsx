@@ -23,62 +23,67 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-white text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mb-4 drop-shadow-lg"
-                >
-                    Fullservicevarv i Stockholms skärgård sedan 1923
-                </motion.p>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-white text-base md:text-lg max-w-4xl mx-auto mb-12 drop-shadow-md"
-                >
-                    Vi tar hand om din båt – från service och reparationer till förvaring. 
-                    Allt under samma tak.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                >
-                    <a 
-                        href="#kontakt"
-                        className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30"
+            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col md:min-h-screen md:justify-between md:py-32">
+                {/* Text – uppe på desktop, normalt på mobil */}
+                <div>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-white text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide mb-4 drop-shadow-lg"
                     >
-                        Kontakta oss
-                    </a>
-                    <Link 
-                        to={createPageUrl('BokaService')}
-                        className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg"
-                    >
-                        Boka service
-                    </Link>
-                    <a 
-                        href="#tjanster"
-                        className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300"
-                    >
-                        Våra tjänster
-                    </a>
-                </motion.div>
+                        Fullservicevarv i Stockholms skärgård sedan 1923
+                    </motion.p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    className="mt-12 flex justify-center"
-                >
-                    <WeatherWidget />
-                </motion.div>
-
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-white text-base md:text-lg max-w-4xl mx-auto mb-12 md:mb-0 drop-shadow-md"
+                    >
+                        Vi tar hand om din båt – från service och reparationer till förvaring. 
+                        Allt under samma tak.
+                    </motion.p>
                 </div>
+
+                {/* Knappar + väder – nere på desktop, normalt på mobil */}
+                <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+                    >
+                        <a 
+                            href="#kontakt"
+                            className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30"
+                        >
+                            Kontakta oss
+                        </a>
+                        <Link 
+                            to={createPageUrl('BokaService')}
+                            className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg"
+                        >
+                            Boka service
+                        </Link>
+                        <a 
+                            href="#tjanster"
+                            className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300"
+                        >
+                            Våra tjänster
+                        </a>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                        className="flex justify-center"
+                    >
+                        <WeatherWidget />
+                    </motion.div>
+                </div>
+            </div>
 
             {/* Scroll Indicator */}
             <motion.button
