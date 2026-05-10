@@ -28,7 +28,7 @@ export default function Hero() {
             {/* Content */}
             {/* Desktop: text högt uppe, knappar/väder långt ned via absolut positionering */}
             {/* Mobil: normal centrerad flex-layout */}
-            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full" style={{ marginTop: '-20vh' }}>
+            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full" style={{ marginTop: '-35vh' }}>
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
