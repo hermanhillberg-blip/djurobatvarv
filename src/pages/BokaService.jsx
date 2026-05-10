@@ -82,7 +82,7 @@ export default function BokaService() {
                             <Calendar className="w-7 h-7 text-white" />
                         </div>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                            Boka Service
+                            Serviceförfrågan
                         </h1>
                     </motion.div>
 
