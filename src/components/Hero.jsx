@@ -15,7 +15,7 @@ export default function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
-                    src="/src/img/hero_spring.JPG"
+                    src="https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/4c0673e1e_hero_spring.jpg"
                     alt=""
                     className="absolute inset-0 w-full h-full"
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
