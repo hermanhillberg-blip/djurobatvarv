@@ -16,7 +16,7 @@ export default function Hero() {
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/b96d845b2_DSCF4561.jpg)',
+                    backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/acecd42ae_DSCF4561.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     imageRendering: 'auto'
