@@ -3,46 +3,13 @@ import { motion } from 'framer-motion';
 import { Anchor } from 'lucide-react';
 
 const staff = [
-    {
-        name: "Erik Lindström",
-        role: "VD / Verksamhetsansvarig",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Anders Bergqvist",
-        role: "Motortekniker",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Johan Nyström",
-        role: "Båttekniker",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Maria Karlsson",
-        role: "Kundservice",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Per Eriksson",
-        role: "Servicetekniker",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Lars Holmberg",
-        role: "Glasfibertekniker",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Magnus Svensson",
-        role: "Elektriker",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face&sat=-100"
-    },
-    {
-        name: "Oscar Lindgren",
-        role: "Lärling",
-        image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop&crop=face&sat=-100"
-    }
+    { name: "Jonas Algernon", role: "VD" },
+    { name: "Thomas Andersson", role: "Delägare" },
+    { name: "Anton Nilsson", role: "Mekaniker" },
+    { name: "Filip Dimander", role: "Mekaniker" },
+    { name: "Örjan Borg", role: "Mekaniker" },
+    { name: "Henrik Lantz", role: "Mekaniker" },
+    { name: "Herman Hillberg", role: "IT" },
 ];
 
 export default function AboutUs() {
@@ -152,12 +119,11 @@ export default function AboutUs() {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
                         >
-                            <div className="aspect-square overflow-hidden">
-                                <img 
-                                    src={person.image} 
-                                    alt={person.name}
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 grayscale"
-                                />
+                            <div className="aspect-square overflow-hidden bg-slate-100 flex items-center justify-center">
+                                <svg viewBox="0 0 100 100" className="w-full h-full text-slate-300" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="38" r="22" />
+                                    <ellipse cx="50" cy="90" rx="35" ry="28" />
+                                </svg>
                             </div>
                             <div className="p-5 text-center">
                                 <h4 className="font-semibold text-[#1e3a5f] mb-1">{person.name}</h4>
