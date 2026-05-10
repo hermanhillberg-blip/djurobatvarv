@@ -16,7 +16,10 @@ export default function Hero() {
             <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/8a2da2b6f_DSCF4561.jpg)'
+                    backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/8a2da2b6f_DSCF4561.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    imageRendering: 'auto'
                 }}
             >
                 <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/30 via-[#1e3a5f]/15 to-[#1e3a5f]/40" />
