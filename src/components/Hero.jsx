@@ -13,15 +13,15 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: 'url(https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/58ac34d58_test.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    imageRendering: 'auto'
-                }}
-            >
+            <div className="absolute inset-0">
+                <img
+                    src="https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/58ac34d58_test.jpg"
+                    alt=""
+                    className="absolute inset-0 w-full h-full"
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    fetchpriority="high"
+                    decoding="sync"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/30 via-[#1e3a5f]/15 to-[#1e3a5f]/40" />
             </div>
 
