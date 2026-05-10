@@ -11,7 +11,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
@@ -28,7 +28,7 @@ export default function Hero() {
             {/* Content */}
             {/* Desktop: text högt uppe, knappar/väder långt ned via absolut positionering */}
             {/* Mobil: normal centrerad flex-layout */}
-            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full md:mt-[-35vh]">
+            <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full md:mt-[-45vh]">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
