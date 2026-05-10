@@ -4,7 +4,7 @@ import { Anchor } from 'lucide-react';
 
 const staff = [
     { name: "Jonas Algernon", role: "VD" },
-    { name: "Thomas Andersson", role: "Delägare" },
+    { name: "Thomas Andersson", role: "Säljchef Seaquip" },
     { name: "Anton Nilsson", role: "Mekaniker" },
     { name: "Filip Dimander", role: "Mekaniker" },
     { name: "Örjan Borg", role: "Mekaniker" },
