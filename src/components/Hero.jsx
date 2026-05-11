@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ChevronDown, Anchor } from 'lucide-react';
 import WeatherWidget from './WeatherWidget';
+import CampaignBanner from './CampaignBanner';
 
 export default function Hero() {
     const scrollToServices = () => {
@@ -11,7 +12,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
@@ -82,6 +83,9 @@ export default function Hero() {
                     <WeatherWidget />
                 </motion.div>
             </div>
+
+            {/* Campaign Banner */}
+            <CampaignBanner />
 
             {/* Scroll Indicator */}
             <motion.button
