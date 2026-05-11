@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { ArrowLeft, Calendar, Clock, Wrench, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isBefore, isWeekend, startOfWeek, endOfWeek } from 'date-fns';
@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { base44 } from '@/api/base44Client';
 
 const services = [
     { value: 'motorservice', label: 'Motorservice' },
@@ -25,13 +26,30 @@ const services = [
 export default function BokaService() {
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
+    const [submitting, setSubmitting] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
         service: '',
-        message: ''
+        message: '',
+        campaign: ''
     });
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const campaign = params.get('campaign');
+        if (campaign) {
+            setFormData(prev => ({
+                ...prev,
+                campaign,
+                service: campaign === 'kampanjveckor-motorservice' ? 'motorservice' : prev.service
+            }));
+        }
+    }, [location.search]);
 
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(currentMonth);
@@ -51,10 +69,15 @@ export default function BokaService() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Visuell demo - ingen faktisk bokning sker
-        alert('Tack för din bokningsförfrågan! Vi återkommer inom kort.');
+        setSubmitting(true);
+        await base44.functions.invoke('submitBookingRequest', {
+            ...formData,
+            preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
+        });
+        setSubmitting(false);
+        setSubmitted(true);
     };
 
     return (
@@ -206,6 +229,26 @@ export default function BokaService() {
                         >
                             <h2 className="text-2xl font-bold text-[#1e3a5f] mb-6">Dina uppgifter</h2>
 
+                            {formData.campaign && (
+                                <div className="mb-5 p-4 bg-[#c41e3a]/8 border border-[#c41e3a]/20 rounded-xl flex items-center gap-3">
+                                    <span className="text-lg">🎯</span>
+                                    <p className="text-sm text-[#c41e3a] font-medium">
+                                        Du bokar via kampanjen <strong>Kampanjveckor – 15% på motorservice</strong>
+                                    </p>
+                                </div>
+                            )}
+
+                            {submitted ? (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="text-center py-16 px-8 bg-slate-50 rounded-2xl border border-slate-200"
+                                >
+                                    <div className="text-5xl mb-4">✅</div>
+                                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">Förfrågan skickad!</h3>
+                                    <p className="text-slate-600">Vi återkommer inom kort på <strong>{formData.email}</strong></p>
+                                </motion.div>
+                            ) : (
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div>
                                     <Label htmlFor="service" className="text-slate-700">Typ av service</Label>
@@ -275,16 +318,18 @@ export default function BokaService() {
 
                                 <Button
                                     type="submit"
-                                    className="w-full bg-[#c41e3a] hover:bg-[#a31830] text-white py-6 text-lg"
+                                    disabled={submitting}
+                                    className="w-full bg-[#c41e3a] hover:bg-[#a31830] text-white py-6 text-lg disabled:opacity-60"
                                 >
                                     <Wrench className="w-5 h-5 mr-2" />
-                                    Skicka bokningsförfrågan
+                                    {submitting ? 'Skickar...' : 'Skicka bokningsförfrågan'}
                                 </Button>
 
                                 <p className="text-sm text-slate-500 text-center">
                                     Vi återkommer inom 24 timmar för att bekräfta din bokning.
                                 </p>
                             </form>
+                            )}
                         </motion.div>
                     </div>
                 </div>

@@ -1,0 +1,47 @@
+{
+  "name": "BookingRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "preferred_date": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "campaign": {
+      "type": "string",
+      "description": "Kampanjk\u00e4lla, t.ex. kampanjveckor-motorservice"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ny",
+        "kontaktad",
+        "bokad",
+        "avslutad"
+      ],
+      "default": "ny"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Klient-ID f\u00f6r Cresvion-isolering, t.ex. djurobatvarv"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "service"
+  ]
+}
