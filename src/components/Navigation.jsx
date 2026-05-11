@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navLinks = [
     { label: 'Hem', href: '#' },
@@ -13,6 +14,8 @@ const navLinks = [
 export default function Navigation() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,10 +27,25 @@ export default function Navigation() {
 
     const scrollToSection = (href) => {
         setIsMobileMenuOpen(false);
+        const isHome = location.pathname === '/';
+
         if (href === '#') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
+            if (isHome) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                navigate('/');
+            }
+            return;
+        }
+
+        if (isHome) {
             document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Navigate to home and scroll to section after arrival
+            navigate('/');
+            setTimeout(() => {
+                document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
         }
     };
 
