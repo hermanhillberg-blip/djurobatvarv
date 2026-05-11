@@ -6,6 +6,7 @@ Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const NOTIFY_EMAIL = Deno.env.get('BOOKING_NOTIFY_EMAIL') || 'info@djurobatvarv.se';
+        const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
 
         const body = await req.json();
         const { name, email, phone, service, preferred_date, message, campaign } = body;
@@ -14,7 +15,7 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Namn, e-post och service är obligatoriska.' }, { status: 400 });
         }
 
-        // Spara i databasen med service role (ingen inloggning krävs)
+        // Spara i databasen
         const record = await base44.asServiceRole.entities.BookingRequest.create({
             name, email, phone, service, preferred_date, message,
             campaign: campaign || '',
@@ -50,15 +51,24 @@ Deno.serve(async (req) => {
     </div>
 </div>`;
 
-        try {
-            await base44.asServiceRole.integrations.Core.SendEmail({
-                to: NOTIFY_EMAIL,
+        // Skicka via Resend
+        const resendRes = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${RESEND_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                from: 'Djurö Båtvarv <onboarding@resend.dev>',
+                to: [NOTIFY_EMAIL],
                 subject: `${campaign ? '[Kampanj] ' : ''}Ny förfrågan: ${service} – ${name}`,
-                body: emailBody
-            });
-        } catch (emailError) {
-            console.error('Email failed:', emailError.message);
-            // Fortsätt ändå – posten är sparad i DB
+                html: emailBody
+            })
+        });
+
+        if (!resendRes.ok) {
+            const err = await resendRes.text();
+            console.error('Resend error:', err);
         }
 
         return Response.json({ success: true, id: record.id });
