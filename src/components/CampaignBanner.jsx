@@ -4,25 +4,17 @@ import { X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
-// MOCKUP-DATA – ersätts senare med riktig data från Cresvion
-const MOCK_CAMPAIGN = {
-    title: "Kampanjveckor!",
-    description: "Vecka 21 & 22 har vi 15% rabatt på all motorservice inkl. delar. Perfekt inför sjösättningen!",
-    image: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/721e5c572_generated_image.png",
-    link: null, // Länk till bokningsformulär sätts senare
-};
-
 export default function CampaignBanner() {
+    const [campaign, setCampaign] = useState(null);
     const [visible, setVisible] = useState(false);
     const [dismissed, setDismissed] = useState(false);
 
     useEffect(() => {
-        // Liten fördröjning innan den glider in
-        const timer = setTimeout(() => setVisible(true), 1200);
-        return () => clearTimeout(timer);
+        // Hämta kampanjdata från Cresvion senare
+        // För nu: ingen data = ingenting visas
     }, []);
 
-    if (dismissed) return null;
+    if (!campaign || dismissed) return null;
 
     return (
         <AnimatePresence>
@@ -51,8 +43,8 @@ export default function CampaignBanner() {
                             {/* Bild */}
                             <div className="w-28 flex-shrink-0">
                                 <img
-                                    src={MOCK_CAMPAIGN.image}
-                                    alt={MOCK_CAMPAIGN.title}
+                                    src={campaign.image}
+                                    alt={campaign.title}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -62,16 +54,16 @@ export default function CampaignBanner() {
                                 <div>
                                     <p className="text-xs font-semibold text-[#c41e3a] uppercase tracking-wider mb-0.5">Kampanj</p>
                                     <h3 className="text-base font-bold text-[#1e3a5f] leading-tight mb-1.5">
-                                        {MOCK_CAMPAIGN.title}
+                                        {campaign.title}
                                     </h3>
                                     <p className="text-sm text-slate-600 leading-snug">
-                                        {MOCK_CAMPAIGN.description}
+                                        {campaign.description}
                                     </p>
                                 </div>
 
                                 {/* CTA */}
                                 <Link
-                                    to={createPageUrl('BokaService') + '?campaign=kampanjveckor-motorservice'}
+                                    to={`${createPageUrl('BokaService')}?campaign=${campaign.id}`}
                                     className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#c41e3a] hover:text-[#a31830] transition-colors group"
                                 >
                                     Boka nu
