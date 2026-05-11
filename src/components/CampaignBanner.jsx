@@ -8,7 +8,7 @@ import { createPageUrl } from '@/utils';
 const MOCK_CAMPAIGN = {
     title: "Kampanjveckor!",
     description: "Vecka 21 & 22 har vi 15% rabatt på all motorservice inkl. delar. Perfekt inför sjösättningen!",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=160&fit=crop",
+    image: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/721e5c572_generated_image.png",
     link: null, // Länk till bokningsformulär sätts senare
 };
 
