@@ -51,25 +51,12 @@ Deno.serve(async (req) => {
     </div>
 </div>`;
 
-        // Skicka via Resend
-        const resendRes = await fetch('https://api.resend.com/emails', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${RESEND_API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                from: 'Djurö Båtvarv <onboarding@resend.dev>',
-                to: [NOTIFY_EMAIL],
-                subject: `${campaign ? '[Kampanj] ' : ''}Ny förfrågan: ${service} – ${name}`,
-                html: emailBody
-            })
+        // Skicka via Base44 SendEmail
+        await base44.asServiceRole.integrations.Core.SendEmail({
+            to: NOTIFY_EMAIL,
+            subject: `${campaign ? '[Kampanj] ' : ''}Ny förfrågan: ${service} – ${name}`,
+            body: emailBody
         });
-
-        if (!resendRes.ok) {
-            const err = await resendRes.text();
-            console.error('Resend error:', err);
-        }
 
         return Response.json({ success: true, id: record.id });
     } catch (error) {
