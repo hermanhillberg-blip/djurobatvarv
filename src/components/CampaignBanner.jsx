@@ -12,7 +12,11 @@ export default function CampaignBanner() {
     useEffect(() => {
         // Hämta kampanjdata från Cresvion senare
         // För nu: ingen data = ingenting visas
-    }, []);
+        if (campaign) {
+            const timer = setTimeout(() => setVisible(true), 1200);
+            return () => clearTimeout(timer);
+        }
+    }, [campaign]);
 
     if (!campaign || dismissed) return null;
 
