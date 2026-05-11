@@ -50,11 +50,16 @@ Deno.serve(async (req) => {
     </div>
 </div>`;
 
-        await base44.asServiceRole.integrations.Core.SendEmail({
-            to: NOTIFY_EMAIL,
-            subject: `${campaign ? '[Kampanj] ' : ''}Ny förfrågan: ${service} – ${name}`,
-            body: emailBody
-        });
+        try {
+            await base44.asServiceRole.integrations.Core.SendEmail({
+                to: NOTIFY_EMAIL,
+                subject: `${campaign ? '[Kampanj] ' : ''}Ny förfrågan: ${service} – ${name}`,
+                body: emailBody
+            });
+        } catch (emailError) {
+            console.error('Email failed:', emailError.message);
+            // Fortsätt ändå – posten är sparad i DB
+        }
 
         return Response.json({ success: true, id: record.id });
     } catch (error) {
