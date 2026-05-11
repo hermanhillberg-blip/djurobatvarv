@@ -35,13 +35,10 @@ export default function CampaignBanner() {
                     className="absolute left-6 z-30"
                     style={{ top: '38%' }}
                 >
-                    <div className="relative bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden max-w-sm border border-white/40"
+                    <div className="relative bg-white backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden max-w-sm border border-white/60"
                         style={{ boxShadow: '0 8px 40px rgba(30,58,95,0.22)' }}
                     >
-                        {/* Övre accent-linje i varumärkesfärgen */}
-                        <div className="h-1 w-full bg-gradient-to-r from-[#1e3a5f] to-[#c41e3a]" />
-
-                        {/* Stäng-knapp */}
+                            {/* Stäng-knapp */}
                         <button
                             onClick={() => setDismissed(true)}
                             className="absolute top-3 right-3 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors z-10"
