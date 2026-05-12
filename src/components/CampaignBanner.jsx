@@ -27,16 +27,16 @@ export default function CampaignBanner() {
         fetchCampaigns();
     }, []);
 
-    // Rotera kampanjer var 6:e sekund
-    useEffect(() => {
-        if (campaigns.length <= 1) return;
-        
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % campaigns.length);
-        }, 6000);
+    // Rotera kampanjer var 10:e sekund
+     useEffect(() => {
+         if (campaigns.length <= 1) return;
 
-        return () => clearInterval(interval);
-    }, [campaigns.length]);
+         const interval = setInterval(() => {
+             setCurrentIndex((prev) => (prev + 1) % campaigns.length);
+         }, 10000);
+
+         return () => clearInterval(interval);
+     }, [campaigns.length]);
 
     // Visa ingenting om det inte finns kampanjdata eller den är avfäst
     if (campaigns.length === 0 || dismissed || loading) {
@@ -51,7 +51,7 @@ export default function CampaignBanner() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="absolute left-6 z-30"
             style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
