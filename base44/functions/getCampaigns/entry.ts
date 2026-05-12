@@ -1,11 +1,10 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const CRESVION_API_URL = 'https://cresvion.base44.app/api/getCampaignsForWebsite';
-const TENANT_ID = 'djuro';
+const CRESVION_API_URL = 'https://cresvion.base44.app/functions/getCampaignsForWebsite?tenantId=djuro';
 
 Deno.serve(async (req) => {
     try {
-        const response = await fetch(`${CRESVION_API_URL}?tenantId=${TENANT_ID}`, {
+        const response = await fetch(CRESVION_API_URL, {
             method: 'GET'
         });
         const data = await response.json();
