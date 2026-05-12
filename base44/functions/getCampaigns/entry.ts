@@ -13,10 +13,12 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Failed to fetch campaigns' }, { status: 500 });
         }
 
+        const activeCampaigns = data.campaigns.filter(campaign => campaign.status !== 'Archived');
+
         return Response.json({
             success: true,
-            campaigns: data.campaigns,
-            count: data.campaigns.length
+            campaigns: activeCampaigns,
+            count: activeCampaigns.length
         });
     } catch (error) {
         return Response.json({ error: error.message }, { status: 500 });
