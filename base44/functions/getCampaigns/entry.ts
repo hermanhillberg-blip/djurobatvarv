@@ -15,7 +15,7 @@ Deno.serve(async (req) => {
 
         const now = new Date();
         const activeCampaigns = data.campaigns.filter(campaign => {
-            if (campaign.status === 'Archived') return false;
+            if (campaign.status !== 'Active' && campaign.status !== 'Scheduled') return false;
             if (campaign.scheduledPublishAt && new Date(campaign.scheduledPublishAt) > now) return false;
             if (campaign.scheduledUnpublishAt && new Date(campaign.scheduledUnpublishAt) < now) return false;
             return true;
