@@ -13,22 +13,10 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Failed to fetch campaigns' }, { status: 500 });
         }
 
-        // Filter active campaigns based on schedule
-        const now = new Date();
-        const activeCampaigns = data.campaigns.filter(campaign => {
-            const publishAt = campaign.scheduledPublishAt ? new Date(campaign.scheduledPublishAt) : null;
-            const unpublishAt = campaign.scheduledUnpublishAt ? new Date(campaign.scheduledUnpublishAt) : null;
-
-            const isPublished = !publishAt || publishAt <= now;
-            const isNotExpired = !unpublishAt || unpublishAt > now;
-
-            return isPublished && isNotExpired;
-        });
-
         return Response.json({
             success: true,
-            campaigns: activeCampaigns,
-            count: activeCampaigns.length
+            campaigns: data.campaigns,
+            count: data.campaigns.length
         });
     } catch (error) {
         return Response.json({ error: error.message }, { status: 500 });
