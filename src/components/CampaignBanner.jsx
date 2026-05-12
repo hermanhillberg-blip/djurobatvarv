@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 
 export default function CampaignBanner() {
-    const [campaign, setCampaign] = useState(null);
+    const [campaigns, setCampaigns] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [dismissed, setDismissed] = useState(false);
     const [loading, setLoading] = useState(true);
 
@@ -14,8 +15,7 @@ export default function CampaignBanner() {
             try {
                 const response = await base44.functions.invoke('getCampaigns', {});
                 if (response.data.success && response.data.campaigns.length > 0) {
-                    // Visa första kampanjen
-                    setCampaign(response.data.campaigns[0]);
+                    setCampaigns(response.data.campaigns);
                 }
             } catch (error) {
                 console.error('Failed to fetch campaigns:', error);
@@ -27,17 +27,31 @@ export default function CampaignBanner() {
         fetchCampaigns();
     }, []);
 
+    // Rotera kampanjer var 6:e sekund
+    useEffect(() => {
+        if (campaigns.length <= 1) return;
+        
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % campaigns.length);
+        }, 6000);
+
+        return () => clearInterval(interval);
+    }, [campaigns.length]);
+
     // Visa ingenting om det inte finns kampanjdata eller den är avfäst
-    if (!campaign || dismissed || loading) {
+    if (campaigns.length === 0 || dismissed || loading) {
         return null;
     }
 
+    const campaign = campaigns[currentIndex];
+
     return (
         <motion.div
-            initial={{ x: '-110%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '-110%', opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 80, damping: 18 }}
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
             className="absolute left-6 z-30"
             style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
