@@ -5,7 +5,9 @@ const TENANT_ID = '69e477ba8e2524e7b812dbe6';
 
 Deno.serve(async (req) => {
     try {
-        const response = await fetch(`${CRESVION_API_URL}?tenantId=${TENANT_ID}`);
+        const response = await fetch(`${CRESVION_API_URL}?tenantId=${TENANT_ID}`, {
+            method: 'GET'
+        });
         const data = await response.json();
 
         if (!data.success) {
