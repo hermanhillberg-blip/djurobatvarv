@@ -39,7 +39,7 @@ export default function CampaignBanner() {
             exit={{ x: '-110%', opacity: 0 }}
             transition={{ type: 'spring', stiffness: 80, damping: 18 }}
             className="absolute left-6 z-30"
-            style={{ top: '32%' }}
+            style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
             <div className="relative bg-white backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden max-w-sm border border-white/60"
                 style={{ boxShadow: '0 8px 40px rgba(30,58,95,0.22)' }}
