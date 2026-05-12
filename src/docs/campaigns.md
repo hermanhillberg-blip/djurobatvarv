@@ -10,7 +10,12 @@ Kampanjsystemet integrerar med Cresvion API för att hämta och visa kampanjer p
 
 **Fil:** `functions/getCampaigns.js`
 
-Denna funktion hämtar kampanjer från Cresvion API.
+Denna funktion hämtar kampanjer från Cresvion API och filtrerar enligt följande regler:
+
+**Filtreringslogik:**
+- Status måste vara `Active` eller `Scheduled` (Draft och Archived filtreras bort)
+- `scheduledPublishAt` - kampanjen visas bara efter detta datum
+- `scheduledUnpublishAt` - kampanjen visas bara före detta datum
 
 ```javascript
 // Endpoint för Cresvion (anpassas per kund)
@@ -27,7 +32,10 @@ const CRESVION_API_URL = 'https://cresvion.base44.app/functions/getCampaignsForW
       "title": "Kampanjtitel",
       "description": "Kampanjbeskrivning",
       "imageUrl": "https://...",
-      "targetUrl": "https://..." // eller null
+      "targetUrl": "https://...",
+      "status": "Active",
+      "scheduledPublishAt": "2026-05-01T00:00:00Z",
+      "scheduledUnpublishAt": "2026-06-01T00:00:00Z"
     }
   ],
   "count": 1
@@ -162,4 +170,4 @@ response.data = {
   imageUrl: string,     // Bildlänk
   targetUrl?: string    // Målwebbadress (optional)
 }
-``
+`
