@@ -38,7 +38,7 @@ export default function CampaignBanner() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '-110%', opacity: 0 }}
             transition={{ type: 'spring', stiffness: 80, damping: 18 }}
-            className="absolute right-6 z-30"
+            className="absolute left-6 z-30"
             style={{ top: '32%' }}
         >
             <div className="relative bg-white backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden max-w-sm border border-white/60"
