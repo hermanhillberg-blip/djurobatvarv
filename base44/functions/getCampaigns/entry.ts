@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const CRESVION_API_URL = 'https://cresvion.base44.app/api/getCampaignsForWebsite';
+const CRESVION_API_URL = 'https://api.cresvion.com/api/getCampaignsForWebsite';
 const TENANT_ID = 'djuro';
 
 Deno.serve(async (req) => {
