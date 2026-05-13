@@ -15,7 +15,15 @@ Deno.serve(async (req) => {
 
         const now = new Date();
         const activeCampaigns = data.campaigns.filter(campaign => {
-            if (campaign.status !== 'Active' && campaign.status !== 'Scheduled') return false;
+            // Accept various active status formats
+            const isActive = campaign.status && 
+                            (campaign.status === 'Active' || 
+                             campaign.status === 'Activated' ||
+                             campaign.status === 'Scheduled' ||
+                             campaign.status.toLowerCase() === 'active' ||
+                             campaign.status.toLowerCase() === 'activated');
+            
+            if (!isActive) return false;
             if (campaign.scheduledPublishAt && new Date(campaign.scheduledPublishAt) > now) return false;
             if (campaign.scheduledUnpublishAt && new Date(campaign.scheduledUnpublishAt) < now) return false;
             return true;
