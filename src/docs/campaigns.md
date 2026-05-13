@@ -13,7 +13,7 @@ Kampanjsystemet integrerar med Cresvion API för att hämta och visa kampanjer p
 Denna funktion hämtar kampanjer från Cresvion API och filtrerar enligt följande regler:
 
 **Filtreringslogik:**
-- Status måste vara `Active` eller `Scheduled` (Draft och Archived filtreras bort)
+- Status måste vara `Active`, `Activated`, eller `Scheduled` (case-insensitive)
 - `scheduledPublishAt` - kampanjen visas bara efter detta datum
 - `scheduledUnpublishAt` - kampanjen visas bara före detta datum
 
@@ -170,4 +170,3 @@ response.data = {
   imageUrl: string,     // Bildlänk
   targetUrl?: string    // Målwebbadress (optional)
 }
-`
