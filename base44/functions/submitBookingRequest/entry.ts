@@ -19,7 +19,7 @@ Deno.serve(async (req) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${API_KEY}`
+                'X-API-Key': API_KEY
             },
             body: JSON.stringify({
                 name,
@@ -29,7 +29,7 @@ Deno.serve(async (req) => {
                 preferred_date: preferred_date || '',
                 message: message || '',
                 campaign: campaign || '',
-                client_id: CLIENT_ID
+                tenantId: CLIENT_ID
             })
         });
 
