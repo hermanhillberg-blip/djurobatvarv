@@ -39,7 +39,7 @@ export default function CampaignBanner() {
      }, [campaigns.length]);
 
     // Visa ingenting om det inte finns kampanjdata eller den är avfäst
-    if (campaigns.length === 0 || dismissed || loading) {
+    if (campaigns.length === 0 || dismissed) {
         return null;
     }
 
