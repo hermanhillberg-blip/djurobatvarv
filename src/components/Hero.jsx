@@ -73,6 +73,7 @@ export default function Hero() {
                     <a href="#kontakt" className="px-8 py-4 bg-[#c41e3a] hover:bg-[#a31830] text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#c41e3a]/30">Kontakta oss</a>
                     <Link to={createPageUrl('BokaService')} className="px-8 py-4 bg-white hover:bg-white/90 text-[#1e3a5f] font-medium rounded-full transition-all duration-300 hover:shadow-lg">Boka service</Link>
                     <a href="#tjanster" className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300">Våra tjänster</a>
+                    <Link to="/campaigns" className="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-full border border-white/30 transition-all duration-300">Kampanjer</Link>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
