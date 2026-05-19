@@ -4,7 +4,7 @@ const CLIENT_ID = 'djurobatvarv';
 
 Deno.serve(async (req) => {
     try {
-        const CRESVION_API_URL = 'https://698a0599132c686b7b0fd4e9.functions.base44.app/receiveCampaignRequest';
+        const CRESVION_API_URL = 'https://cresvion.base44.app/functions/receiveCampaignRequest';
         const API_KEY = Deno.env.get('CAMPAIGN_REQUEST_API_KEY');
 
         const body = await req.json();
