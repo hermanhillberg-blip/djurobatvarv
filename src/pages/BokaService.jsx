@@ -71,12 +71,18 @@ export default function BokaService() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
-        await base44.functions.invoke('submitBookingRequest', {
-            ...formData,
-            preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
-        });
-        setSubmitting(false);
-        setSubmitted(true);
+        try {
+            await base44.functions.invoke('submitBookingRequest', {
+                ...formData,
+                preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
+            });
+            setSubmitted(true);
+        } catch (error) {
+            console.error('Booking error:', error);
+            alert('Något gick fel. Försök igen eller ring oss direkt.');
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (

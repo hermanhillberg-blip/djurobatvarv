@@ -34,6 +34,8 @@ Deno.serve(async (req) => {
         });
 
         if (!cresvionResponse.ok) {
+            const errText = await cresvionResponse.text();
+            console.error('Cresvion error:', cresvionResponse.status, errText);
             return Response.json({ error: 'Kunde inte skicka förfrågan till Cresvion' }, { status: 500 });
         }
 
