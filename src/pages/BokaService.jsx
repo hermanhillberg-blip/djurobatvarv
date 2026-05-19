@@ -13,7 +13,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { base44 } from '@/api/base44Client';
-import { appParams } from '@/lib/app-params';
 
 const services = [
     { value: 'motorservice', label: 'Motorservice' },
@@ -73,17 +72,11 @@ export default function BokaService() {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const serverUrl = appParams.appBaseUrl || window.location.origin;
-            const res = await fetch(`${serverUrl}/functions/submitBookingRequest`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
-                })
+            const response = await base44.functions.invoke('submitBookingRequest', {
+                ...formData,
+                preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
             });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.error || 'Okänt fel');
+            if (response.data?.error) throw new Error(response.data.error);
             setSubmitted(true);
         } catch (error) {
             console.error('Booking error:', error);
