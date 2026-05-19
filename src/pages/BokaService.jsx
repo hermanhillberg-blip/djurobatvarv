@@ -72,20 +72,15 @@ export default function BokaService() {
         e.preventDefault();
         setSubmitting(true);
         try {
-            const res = await fetch('/functions/submitBookingRequest', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
-                })
+            const response = await base44.functions.invoke('submitBookingRequest', {
+                ...formData,
+                preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
             });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.error || 'Okänt fel');
+            if (response.data?.error) throw new Error(response.data.error);
             setSubmitted(true);
         } catch (error) {
             console.error('Booking error:', error);
-            alert('Något gick fel. Försök igen eller ring oss direkt.');
+            alert('Något gick fel: ' + error.message);
         } finally {
             setSubmitting(false);
         }

@@ -38,7 +38,8 @@ Deno.serve(async (req) => {
         console.log('[submitBookingRequest] Cresvion svar:', cresvionResponse.status, responseText);
 
         if (!cresvionResponse.ok) {
-            return Response.json({ error: 'Kunde inte skicka förfrågan till Cresvion', details: responseText }, { status: 500 });
+            console.error('[submitBookingRequest] Cresvion error:', cresvionResponse.status, responseText);
+            return Response.json({ error: 'Kunde inte skicka förfrågan', details: responseText }, { status: 200 });
         }
 
         let cresvionData;
@@ -48,7 +49,7 @@ Deno.serve(async (req) => {
             cresvionData = {};
         }
 
-        return Response.json({ success: true, id: cresvionData.id });
+        return Response.json({ success: true, id: cresvionData.id }, { status: 200 });
     } catch (error) {
         console.error('[submitBookingRequest] Fel:', error.message);
         return Response.json({ error: error.message }, { status: 500 });
