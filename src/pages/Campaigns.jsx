@@ -97,7 +97,7 @@ export default function Campaigns() {
                                         </a>
                                     ) : (
                                         <Link
-                                            to={`/BokaService?campaign=${campaign.id}`}
+                                            to={`/BokaService?campaign=${campaign.id}&title=${encodeURIComponent(campaign.title)}`}
                                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#c41e3a] hover:bg-[#a31830] text-white text-sm font-semibold rounded-full transition-colors"
                                         >
                                             Boka nu

@@ -28,6 +28,7 @@ export default function BokaService() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [campaignTitle, setCampaignTitle] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -42,12 +43,10 @@ export default function BokaService() {
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const campaign = params.get('campaign');
+        const title = params.get('title');
         if (campaign) {
-            setFormData(prev => ({
-                ...prev,
-                campaign,
-                service: campaign === 'kampanjveckor-motorservice' ? 'motorservice' : prev.service
-            }));
+            setFormData(prev => ({ ...prev, campaign }));
+            if (title) setCampaignTitle(decodeURIComponent(title));
         }
     }, [location.search]);
 
@@ -233,7 +232,7 @@ export default function BokaService() {
                                 <div className="mb-5 p-4 bg-[#c41e3a]/8 border border-[#c41e3a]/20 rounded-xl flex items-center gap-3">
                                     <span className="text-lg">🎯</span>
                                     <p className="text-sm text-[#c41e3a] font-medium">
-                                        Du bokar via kampanjen <strong>Kampanjveckor – 15% på motorservice</strong>
+                                        Du bokar via kampanjen <strong>{campaignTitle || formData.campaign}</strong>
                                     </p>
                                 </div>
                             )}

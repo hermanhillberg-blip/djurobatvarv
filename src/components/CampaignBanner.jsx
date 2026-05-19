@@ -112,7 +112,7 @@ export default function CampaignBanner() {
                             </a>
                         ) : (
                             <Link
-                                to={`/BokaService?campaign=${campaign.id}`}
+                                to={`/BokaService?campaign=${campaign.id}&title=${encodeURIComponent(campaign.title)}`}
                                 className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-[#c41e3a] hover:text-[#a31830] transition-colors group"
                             >
                                 Boka nu
