@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const CLIENT_ID = 'djurobatvarv';
+const CLIENT_ID = '69e477ba8e2524e7b812dbe6';
 
 Deno.serve(async (req) => {
     try {
