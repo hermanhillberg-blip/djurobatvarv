@@ -9,6 +9,13 @@ export default function CampaignBanner() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [dismissed, setDismissed] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         const fetchCampaigns = async () => {
@@ -52,8 +59,11 @@ export default function CampaignBanner() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="absolute left-6 z-30"
-            style={{ top: '50%', transform: 'translateY(-50%)' }}
+            className="absolute z-30"
+            style={isDesktop
+                ? { top: '50%', transform: 'translateY(-50%)', left: '1.5rem' }
+                : { bottom: '5rem', left: '50%', transform: 'translateX(-50%)' }
+            }
         >
             <div className="relative bg-white backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden max-w-sm border border-white/60"
                 style={{ boxShadow: '0 8px 40px rgba(30,58,95,0.22)' }}
