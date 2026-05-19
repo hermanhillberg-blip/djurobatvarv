@@ -14,7 +14,8 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Namn, e-post och service är obligatoriska.' }, { status: 400 });
         }
 
-        // Skicka till Cresvion
+        console.log('[submitBookingRequest] Skickar till Cresvion:', { name, email, service, campaign });
+
         const cresvionResponse = await fetch(CRESVION_API_URL, {
             method: 'POST',
             headers: {
@@ -33,16 +34,23 @@ Deno.serve(async (req) => {
             })
         });
 
+        const responseText = await cresvionResponse.text();
+        console.log('[submitBookingRequest] Cresvion svar:', cresvionResponse.status, responseText);
+
         if (!cresvionResponse.ok) {
-            const errText = await cresvionResponse.text();
-            console.error('Cresvion error:', cresvionResponse.status, errText);
-            return Response.json({ error: 'Kunde inte skicka förfrågan till Cresvion' }, { status: 500 });
+            return Response.json({ error: 'Kunde inte skicka förfrågan till Cresvion', details: responseText }, { status: 500 });
         }
 
-        const cresvionData = await cresvionResponse.json();
+        let cresvionData;
+        try {
+            cresvionData = JSON.parse(responseText);
+        } catch {
+            cresvionData = {};
+        }
 
         return Response.json({ success: true, id: cresvionData.id });
     } catch (error) {
+        console.error('[submitBookingRequest] Fel:', error.message);
         return Response.json({ error: error.message }, { status: 500 });
     }
 });

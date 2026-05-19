@@ -72,10 +72,16 @@ export default function BokaService() {
         e.preventDefault();
         setSubmitting(true);
         try {
-            await base44.functions.invoke('submitBookingRequest', {
-                ...formData,
-                preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
+            const res = await fetch('/functions/submitBookingRequest', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...formData,
+                    preferred_date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : ''
+                })
             });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Okänt fel');
             setSubmitted(true);
         } catch (error) {
             console.error('Booking error:', error);
