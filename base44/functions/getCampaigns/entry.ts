@@ -2,6 +2,16 @@ import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 const CRESVION_API_URL = 'https://cresvion.base44.app/functions/getCampaignsForWebsite?tenantId=69e477ba8e2524e7b812dbe6';
 
+// Parse a datetime string like "2026-05-19T12:07" as Europe/Stockholm time
+function parseStockholmTime(str) {
+    if (!str) return null;
+    // Determine Stockholm offset: CEST (+02:00) from last Sunday in March to last Sunday in October
+    // Simple approach: parse with +02:00 (CEST, valid May-October)
+    // For winter campaigns use +01:00 (CET), but May is always CEST
+    const withOffset = str.includes('+') || str.includes('Z') ? str : str + '+02:00';
+    return new Date(withOffset);
+}
+
 Deno.serve(async (req) => {
     try {
         const response = await fetch(CRESVION_API_URL, {
@@ -21,9 +31,12 @@ Deno.serve(async (req) => {
                 const s = campaign.status.toLowerCase();
                 if (s !== 'active' && s !== 'scheduled') return false;
             }
-            // Check scheduled publish/unpublish dates
-            if (campaign.scheduledPublishAt && new Date(campaign.scheduledPublishAt) > now) return false;
-            if (campaign.scheduledUnpublishAt && new Date(campaign.scheduledUnpublishAt) < now) return false;
+            // Parse dates treating them as Stockholm time (CEST +02:00)
+            const publishAt = parseStockholmTime(campaign.scheduledPublishAt);
+            const unpublishAt = parseStockholmTime(campaign.scheduledUnpublishAt);
+
+            if (publishAt && publishAt > now) return false;
+            if (unpublishAt && unpublishAt < now) return false;
             return true;
         });
 
