@@ -8,19 +8,20 @@ Deno.serve(async (req) => {
             method: 'GET'
         });
         const data = await response.json();
+        console.log('[getCampaigns] Raw response from Cresvion:', JSON.stringify(data));
 
         if (!data.success) {
-            return Response.json({ error: 'Failed to fetch campaigns' }, { status: 500 });
+            return Response.json({ error: 'Failed to fetch campaigns', raw: data }, { status: 500 });
         }
 
         const now = new Date();
         const activeCampaigns = data.campaigns.filter(campaign => {
-            // Only show Active or Scheduled campaigns (case-insensitive)
-            const isActive = campaign.status && 
-                            (campaign.status.toLowerCase() === 'active' || 
-                             campaign.status.toLowerCase() === 'scheduled');
-            
-            if (!isActive) return false;
+            // If status exists, only allow Active or Scheduled (case-insensitive)
+            if (campaign.status) {
+                const s = campaign.status.toLowerCase();
+                if (s !== 'active' && s !== 'scheduled') return false;
+            }
+            // Check scheduled publish/unpublish dates
             if (campaign.scheduledPublishAt && new Date(campaign.scheduledPublishAt) > now) return false;
             if (campaign.scheduledUnpublishAt && new Date(campaign.scheduledUnpublishAt) < now) return false;
             return true;
