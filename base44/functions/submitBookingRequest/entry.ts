@@ -23,14 +23,16 @@ Deno.serve(async (req) => {
                 'X-API-Key': API_KEY
             },
             body: JSON.stringify({
+                tenantId: CLIENT_ID,
+                appId: 'djurobatvarv-booking',
+                domain: 'djurobatvarv.se',
                 name,
                 email,
                 phone: phone || '',
                 service,
                 preferred_date: preferred_date || '',
                 message: message || '',
-                campaign: campaign || '',
-                tenantId: CLIENT_ID
+                campaign: campaign || ''
             })
         });
 
