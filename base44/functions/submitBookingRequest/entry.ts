@@ -7,6 +7,13 @@ Deno.serve(async (req) => {
         const CRESVION_API_URL = 'https://cresvion.base44.app/functions/receiveCampaignRequest';
         const API_KEY = Deno.env.get('CAMPAIGN_REQUEST_API_KEY');
 
+        const origin = req.headers.get('origin') || '';
+        const referer = req.headers.get('referer') || '';
+        const isFromApp = origin.includes('base44.app') || origin.includes('djurobatvarv') || referer.includes('base44.app') || referer.includes('djurobatvarv');
+        if (!isFromApp) {
+            return Response.json({ error: 'Forbidden' }, { status: 403 });
+        }
+
         const body = await req.json();
         const { name, email, phone, service, preferred_date, message, campaign } = body;
 

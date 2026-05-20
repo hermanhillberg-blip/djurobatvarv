@@ -1,5 +1,12 @@
 Deno.serve(async (req) => {
     try {
+        const origin = req.headers.get('origin') || '';
+        const referer = req.headers.get('referer') || '';
+        const isFromApp = origin.includes('base44.app') || origin.includes('djurobatvarv') || referer.includes('base44.app') || referer.includes('djurobatvarv');
+        if (!isFromApp) {
+            return Response.json({ error: 'Forbidden' }, { status: 403 });
+        }
+
         // Djurö koordinater
         const lon = 18.69;
         const lat = 59.31;
