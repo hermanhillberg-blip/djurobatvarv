@@ -92,46 +92,7 @@ export default function AboutUs() {
                     </motion.div>
                 </div>
 
-                {/* Staff Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
-                >
-                    <h3 className="text-2xl md:text-3xl font-semibold text-[#1e3a5f] mb-4">
-                        Möt vårt team
-                    </h3>
-                    <p className="text-slate-600 max-w-2xl mx-auto">
-                        Bakom varje välskött båt finns ett engagerat team. Lär känna de personer 
-                        som tar hand om din båt.
-                    </p>
-                </motion.div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {staff.map((person, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <div className="aspect-square overflow-hidden bg-slate-100 flex items-center justify-center">
-                                <svg viewBox="0 0 100 100" className="w-full h-full text-slate-300" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="50" cy="38" r="22" />
-                                    <ellipse cx="50" cy="90" rx="35" ry="28" />
-                                </svg>
-                            </div>
-                            <div className="p-5 text-center">
-                                <h4 className="font-semibold text-[#1e3a5f] mb-1">{person.name}</h4>
-                                <p className="text-slate-500 text-sm">{person.role}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
             </div>
         </section>
     );
