@@ -4,40 +4,56 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
     {
-        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0272.jpg",
-        alt: "Djurö Båtvarv hamn"
-    },
-    {
-        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0021.jpg",
-        alt: "Båtar på varvet"
-    },
-    {
-        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0270.jpg",
-        alt: "Varvsverksamhet"
-    },
-    {
-        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0272.jpg",
-        alt: "Hamnen vid Djurö Båtvarv"
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/653891590_test.jpg",
+        alt: "Djurö Båtvarv från vattnet"
     },
     {
         url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/8543aaa55_8b912208-fd6e-4c57-b299-14c5d11c3396.jpg",
         alt: "Bryggan vid Djurö Båtvarv"
     },
     {
-        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/f74493cd5_020baef7-2e0c-487d-a4f8-944e7ffea17e.jpg",
-        alt: "Sjösättning av gummibåt"
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/de4277ea4_DSCF4567.jpg",
+        alt: "Träbåt vid kajen"
+    },
+    {
+        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0272.jpg",
+        alt: "Djurö Båtvarv hamn"
+    },
+    {
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/15689e576_DSCF4571.jpg",
+        alt: "Varvets servicebyggnad"
     },
     {
         url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/31528faf1_8677fc9a-bb1a-41ca-990f-b18d5e8374d8.jpg",
         alt: "Djurö Båtvarv spegling i vattnet"
     },
     {
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/c0f346ee6_DSCF4572.jpg",
+        alt: "Trawler vid bryggan"
+    },
+    {
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/f74493cd5_020baef7-2e0c-487d-a4f8-944e7ffea17e.jpg",
+        alt: "Sjösättning av gummibåt"
+    },
+    {
+        url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/a1475895a_DSCF4573.jpg",
+        alt: "Varvsområdet med kranen"
+    },
+    {
         url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/8191677f7_22870b02-4673-4fa4-9238-b179bc107027.jpg",
         alt: "Motorbåt vid kajen"
     },
     {
+        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0270.jpg",
+        alt: "Varvsverksamhet"
+    },
+    {
         url: "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/5772fa5d0_f81d94bb-e9c0-4642-9015-ea93055b81d6.jpg",
         alt: "Segelbåt vid bryggan"
+    },
+    {
+        url: "https://djurobatvarv.se/wp-content/uploads/2015/02/DSC_0021.jpg",
+        alt: "Båtar på varvet"
     }
 ];
 
