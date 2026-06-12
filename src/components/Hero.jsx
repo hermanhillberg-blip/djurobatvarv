@@ -1,28 +1,51 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { ChevronDown, Anchor } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import WeatherWidget from './WeatherWidget';
 import CampaignBanner from './CampaignBanner';
 
+const heroImages = [
+    "https://raw.githubusercontent.com/hermanhillberg-blip/djurobatvarv/main/src/img/hero_spring.jpeg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/e4303b1d8_DSCF4567.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/41dd1c6c4_DSCF4571.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/d207edb95_8b912208-fd6e-4c57-b299-14c5d11c3396.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/aa7fbf4e9_47f673dd-9a75-4d2e-bb19-24fc82646c97.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/945a21fc2_94f956bd-7ddd-4668-a7b4-3031f02122c2.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/4d485233c_22870b02-4673-4fa4-9238-b179bc107027.jpg",
+];
+
 export default function Hero() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
     const scrollToServices = () => {
         document.getElementById('verksamhet')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Image */}
+            {/* Background Slideshow */}
             <div className="absolute inset-0">
-                <img
-                    src="https://raw.githubusercontent.com/hermanhillberg-blip/djurobatvarv/main/src/img/hero_spring.jpeg"
-                    alt=""
-                    className="absolute inset-0 w-full h-full"
-                    style={{ objectFit: 'cover', objectPosition: 'center' }}
-                    fetchpriority="high"
-                    decoding="sync"
-                />
+                <AnimatePresence mode="sync">
+                    <motion.img
+                        key={currentIndex}
+                        src={heroImages[currentIndex]}
+                        alt=""
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        className="absolute inset-0 w-full h-full object-cover object-center"
+                    />
+                </AnimatePresence>
                 <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/30 via-[#1e3a5f]/15 to-[#1e3a5f]/40" />
             </div>
 
