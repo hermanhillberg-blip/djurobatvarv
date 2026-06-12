@@ -8,12 +8,8 @@ import CampaignBanner from './CampaignBanner';
 
 const heroImages = [
     "https://raw.githubusercontent.com/hermanhillberg-blip/djurobatvarv/main/src/img/hero_spring.jpeg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/e4303b1d8_DSCF4567.jpg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/41dd1c6c4_DSCF4571.jpg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/d207edb95_8b912208-fd6e-4c57-b299-14c5d11c3396.jpg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/aa7fbf4e9_47f673dd-9a75-4d2e-bb19-24fc82646c97.jpg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/945a21fc2_94f956bd-7ddd-4668-a7b4-3031f02122c2.jpg",
-    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/4d485233c_22870b02-4673-4fa4-9238-b179bc107027.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/97ba16a09_8b912208-fd6e-4c57-b299-14c5d11c3396.jpg",
+    "https://media.base44.com/images/public/69711fb41d1de3dee1eee0b9/1509c9af5_f81d94bb-e9c0-4642-9015-ea93055b81d6.jpg",
 ];
 
 export default function Hero() {
@@ -22,7 +18,7 @@ export default function Hero() {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-        }, 5000);
+        }, 8000);
         return () => clearInterval(timer);
     }, []);
 
