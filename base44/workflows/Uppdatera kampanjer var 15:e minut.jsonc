@@ -1,0 +1,44 @@
+{
+  "name": "Uppdatera kampanjer var 15:e minut",
+  "description": "Polliar Cresvion f\u00f6r kampanjuppdateringar var 15:e minut f\u00f6r att h\u00e5lla kampanjvisningen synkroniserad",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "interval",
+      "cron_expression": null,
+      "one_time_date": null,
+      "timezone": "UTC",
+      "interval_value": 5,
+      "interval_unit": "minutes",
+      "interval_anchor": "2026-05-13T13:33:00.697000",
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "uppdatera_kampanjer_var_15_e_minut",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "getCampaigns",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "getCampaigns"
+  }
+}
